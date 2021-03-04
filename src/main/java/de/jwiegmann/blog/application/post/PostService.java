@@ -27,10 +27,7 @@ public class PostService {
     @Transactional
     public Post create(Post post) throws EntityNotFoundException {
 
-        User user = entityManager.find(User.class, post.getAuthor().getId());
-
-            entityManager.merge(post);
-        return post;
+        return entityManager.merge(post);
     }
 
     public Post findById(int id) {
@@ -79,25 +76,6 @@ public class PostService {
         query.setFirstResult(offset);
         query.setMaxResults(limit);
 
-        List<Post> results = query.getResultList();
-
-        LOG.debug("Located {} Posts", results.size());
-
-        return results;
-    }
-
-    public List<Post> findAllByUserId(int id) {
-
-        LOG.debug("Searching for Posts by User with id {}", id);
-
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Post> criteriaQuery = criteriaBuilder.createQuery(Post.class);
-
-        Root<Post> from = criteriaQuery.from(Post.class);
-        criteriaQuery.select(from);
-        criteriaQuery.where(criteriaBuilder.equal(from.get("User"), id));
-
-        TypedQuery<Post> query = entityManager.createQuery(criteriaQuery);
         List<Post> results = query.getResultList();
 
         LOG.debug("Located {} Posts", results.size());

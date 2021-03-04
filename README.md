@@ -1,3 +1,30 @@
+
+# Exercise 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # microprofile-graphql-quickstart project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.

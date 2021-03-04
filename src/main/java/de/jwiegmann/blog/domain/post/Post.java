@@ -13,10 +13,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Post {
 
-    @Ignore
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     private String title;
 
@@ -28,11 +27,11 @@ public class Post {
     public Post() {
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -59,30 +58,4 @@ public class Post {
     public void setAuthor(User author) {
         this.author = author;
     }
-
-    /*public static PostBuilder newBuilder() {
-        return new PostBuilder();
-    }
-
-    public static class PostBuilder extends DefaultBuilder<Post> {
-
-        public PostBuilder() {
-            super();
-        }
-
-        public PostBuilder withId(int id) {
-            this.instance.id = id;
-            return this;
-        }
-
-        public PostBuilder withTitle(String title) {
-            this.instance.title = title;
-            return this;
-        }
-
-        public PostBuilder withContent(String content) {
-            this.instance.content = content;
-            return this;
-        }
-    }*/
 }

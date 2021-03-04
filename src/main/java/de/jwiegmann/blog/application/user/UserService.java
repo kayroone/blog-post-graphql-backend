@@ -25,7 +25,10 @@ public class UserService {
     private static final Logger LOG = LoggerFactory.getLogger(UserService.class);
 
     @Transactional
-    public User create(User user) {
+    public User create(String name) {
+
+        User user = new User();
+        user.setName(name);
 
         entityManager.persist(user);
 
@@ -34,7 +37,7 @@ public class UserService {
         return user;
     }
 
-    public User findById(int id) {
+    public User findById(Integer id) {
 
         return entityManager.find(User.class, id);
     }
@@ -49,7 +52,7 @@ public class UserService {
         Root<User> from = cq.from(User.class);
 
         Predicate predicateUserName =
-                cb.like(cb.lower(from.get("username")), "%" + name.toLowerCase() + "%");
+                cb.like(cb.lower(from.get("name")), "%" + name.toLowerCase() + "%");
         cq.select(from).where(cb.or(predicateUserName));
 
         TypedQuery<User> query = entityManager.createQuery(cq);
@@ -60,8 +63,13 @@ public class UserService {
         return Collections.unmodifiableList(users);
     }
 
-    public boolean exists(String name) {
+    public boolean existsWithName(String name) {
 
         return findByName(name).size() > 0;
+    }
+
+    public boolean existsWithId(Integer id) {
+
+        return findById(id) != null;
     }
 }
