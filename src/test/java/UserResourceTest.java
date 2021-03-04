@@ -15,10 +15,11 @@ public class UserResourceTest {
                 "{\"query\":" +
                         "\"" +
                             "mutation createUser { " +
-                                "createUser (user: {" +
+                                "createUser ( " +
                                     "name: \\\"Test\\\" " +
-                                "}) {" +
-                                "name" +
+                                "){ " +
+                                    "id " +
+                                    "name " +
                                 "}" +
                             "}" +
                         "\"" +
@@ -29,10 +30,10 @@ public class UserResourceTest {
                 .post("/graphql/")
                 .then()
                 .contentType(ContentType.JSON)
-                .body("data.createUser.size()", is(1))
+                .body("data.createUser.size()", is(2))
+                .body("data.createUser.id", is(1))
                 .body("data.createUser.name", is("Test"))
                 .statusCode(200);
-
     }
 
 }

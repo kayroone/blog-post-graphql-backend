@@ -5,6 +5,6 @@ import org.eclipse.microprofile.graphql.GraphQLException;
 public class PostNotFoundException extends GraphQLException {
 
     public PostNotFoundException(int id) {
-        super("Post with id " + id + " not found", ExceptionType.DataFetchingException);
+        super("Post with id " + id + " not found.", ExceptionType.DataFetchingException);
     }
 }
