@@ -30,9 +30,13 @@ public class PostResource {
     @Description("Create a new post")
     public Post createPost(@NonNull Post post) throws GraphQLException {
 
-        if (!userService.existsWithId(post.getAuthor().getId())) {
+        User user = userService.findById(post.getAuthor().getId());
+
+        if (user == null) {
             throw new UserNotFoundException(post.getAuthor().getId());
         }
+
+        post.setAuthor(user);
 
         return postService.create(post);
     }
