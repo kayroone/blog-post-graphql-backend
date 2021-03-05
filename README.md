@@ -1,77 +1,79 @@
 
-# Exercise 1
+# Exercises for the _GraphQL_ workshop
 
+## Overview
 
+####EXERCISES:
 
+1. [EXERCISE 1: UserResource - Add a method to create a new user](src/main/java/de/jwiegmann/blog/application/post/UserResource.java)
+1. [EXERCISE 2: PostResource - Add a method to create a new post](src/main/java/de/jwiegmann/blog/application/post/PostResource.java)
+3. [EXERCISE 3: PostResource - Add a method to fetch a single post](src/main/java/de/jwiegmann/blog/application/post/PostResource.java)
+4. [EXERCISE 4: PostResource - Add a method to fetch all post matching a given keyword in the title](src/main/java/de/jwiegmann/blog/application/post/PostResource.java)
+4. [EXERCISE 5: PostResource - Add a method to add posts to the user query response](src/main/java/de/jwiegmann/blog/application/post/PostResource.java)
+4. [EXERCISE 6: UserResourceTest - Write tests for all your resource methods](src/test/java/UserResourceTest.java)
+4. [EXERCISE 7: PostResourceTest - Write tests for all your resource methods](src/test/java/PostResourceTest.java)
 
+####Important stuff:
 
+- GraphQL MicroProfile Documentation: [MP GraphQL](https://download.eclipse.org/microprofile/microprofile-graphql-1.0/microprofile-graphql.html)
+- Start your application with: `./mvnw compile quarkus:dev`
+- GraphQL UI to test your endpoints: `http://localhost:8080/q/graphql-ui`
+- Raw schema file available at: `curl http://localhost:8080/graphql/schema.graphql`
+- To wrap and start your application into a docker container: [Dockerfile](src/main/docker/Dockerfile.native)
 
+### Exercise 1
 
+Read the [MP GraphQL](https://download.eclipse.org/microprofile/microprofile-graphql-1.0/microprofile-graphql.html) Documentation 
+to find out what you need to *write* files with GraphQL to the server.
 
+Todos:
+1. Find and read the appropriate section in the documentation.
+2. Create a method and use an appropriate service to persist a new user to the database.   
+3. Test your new method over the GraphQL UI.
 
+### Exercise 2
 
+Read the [MP GraphQL](https://download.eclipse.org/microprofile/microprofile-graphql-1.0/microprofile-graphql.html) Documentation
+to find out what you need to *write* files with GraphQL to the server.
 
+Todos:
+1. Find and read the appropriate section in the documentation.
+2. Create a method and use an appropriate service to persist a new post to the database.
+3. Test your new method over the GraphQL UI.
 
+### Exercise 3
 
+Read the [MP GraphQL](https://download.eclipse.org/microprofile/microprofile-graphql-1.0/microprofile-graphql.html) Documentation
+to find out what you need to *read* files with GraphQL to the server.
 
+Todos:
+1. Find and read the appropriate section in the documentation.
+2. Create a method and use an appropriate service to fetch a single post user from the database.
+3. Test your new method over the GraphQL UI.
 
+### Exercise 4
 
+Read the [MP GraphQL](https://download.eclipse.org/microprofile/microprofile-graphql-1.0/microprofile-graphql.html) Documentation
+to find out what you need to *read* files and *fetch partial results* with GraphQL to the server.
 
+Todos:
+1. Find and read the appropriate section in the documentation.
+2. Create a method and use an appropriate service to *fetch partial posts* from the database. Create your method so 
+   that if an exception is thrown during fetching, partial results will still be returned. 
+3. Test your new method over the GraphQL UI.
 
+### Exercise 5
 
+Read the [MP GraphQL](https://download.eclipse.org/microprofile/microprofile-graphql-1.0/microprofile-graphql.html) Documentation
+to find out what you need to add additional data to an existing query.
 
+Hint: You have to @Source the additional data.
 
+Todos:
+1. Find and read the appropriate section in the documentation.
+2. Create a method that allows to query the posts of the corresponding user via the user query. 
+3. Test your method by adding a post query to the user query over the GraphQL UI.
 
+### Exercise 6 & 7
 
-
-
-# microprofile-graphql-quickstart project
-
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
-
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
-
-## Running the application in dev mode
-
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw compile quarkus:dev
-```
-
-## Packaging and running the application
-
-The application can be packaged using:
-```shell script
-./mvnw package
-```
-It produces the `microprofile-graphql-quickstart-1.0.0-SNAPSHOT-runner.jar` file in the `/target` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/lib` directory.
-
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
-
-The application is now runnable using `java -jar target/microprofile-graphql-quickstart-1.0.0-SNAPSHOT-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: 
-```shell script
-./mvnw package -Pnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/microprofile-graphql-quickstart-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html.
-
-# RESTEasy JAX-RS
-
-<p>A Hello World RESTEasy resource</p>
-
-Guide: https://quarkus.io/guides/rest-json
+Write unit tests for your resource methods with the queries from your GraphQL UI tests using JUnit 5 and RestAssured.
