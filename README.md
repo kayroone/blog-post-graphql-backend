@@ -28,7 +28,8 @@ to find out what you need to *write* files with GraphQL to the server.
 
 Todos:
 1. Find and read the appropriate section in the documentation.
-2. Create a method and use an appropriate service to persist a new user to the database.   
+2. Create a method and use an appropriate service to persist a new user to the database. Consider that a corresponding 
+   message should be returned by the API if a user with the name already exists. 
 3. Test your new method over the GraphQL UI.
 
 ### Exercise 2
@@ -38,7 +39,8 @@ to find out what you need to *write* files with GraphQL to the server.
 
 Todos:
 1. Find and read the appropriate section in the documentation.
-2. Create a method and use an appropriate service to persist a new post to the database.
+2. Create a method and use an appropriate service to persist a new post to the database. Consider that a corresponding
+   message should be returned by the API if a user/author with the given ID doesn't exist. 
 3. Test your new method over the GraphQL UI.
 
 ### Exercise 3
@@ -48,7 +50,8 @@ to find out what you need to *read* files with GraphQL to the server.
 
 Todos:
 1. Find and read the appropriate section in the documentation.
-2. Create a method and use an appropriate service to fetch a single post user from the database.
+2. Create a method and use an appropriate service to fetch a single post user from the database. Consider that a corresponding
+   message should be returned by the API if a post with the given ID doesn't exist.
 3. Test your new method over the GraphQL UI.
 
 ### Exercise 4
