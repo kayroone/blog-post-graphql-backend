@@ -16,7 +16,7 @@ public class UserResourceTest {
                         "\"" +
                             "mutation createUser { " +
                                 "createUser ( " +
-                                    "name: \\\"Test\\\" " +
+                                    "name: \\\"User\\\" " +
                                 "){ " +
                                     "id " +
                                     "name " +
@@ -31,8 +31,8 @@ public class UserResourceTest {
                 .then()
                 .contentType(ContentType.JSON)
                 .body("data.createUser.size()", is(2))
-                .body("data.createUser.id", is(1))
-                .body("data.createUser.name", is("Test"))
+                .body("data.createUser.id", is(2))
+                .body("data.createUser.name", is("User"))
                 .statusCode(200);
     }
 
